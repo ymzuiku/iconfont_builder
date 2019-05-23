@@ -1,6 +1,6 @@
-# iconfont_builder
+# 快捷生成 Iconfont 图标字体在 Flutter 中的映射
 
-编译 Iconfont 至 Flutter IconData 或 Icon 组件
+Iconfont 有 500w 个图标，而且各个公司的设计师还在源源不断的为其增加新的图标，此库仅为了更便捷的在 Flutter 中使用 Iconfont 字体图标库
 
 ## 准备工作
 
@@ -80,6 +80,22 @@ import './Iconfont.dart';
 void main() {
   // 此时，Iconfont.name 是一个函数，直接返回一个 Icon 组件
   final theIcon = Iconfont.data();
+}
+```
+
+### 使用更短的类名
+
+编译时，添加 `--name 类名` 命令，替换 `Iconfont` 类名
+
+```sh
+$ iconfont_builder --from ./fonts --to ./lib/Iconfont.dart --name Icn
+```
+
+```dart
+import './Iconfont.dart';
+
+void main() {
+  final theIcon = Icon(Icn.name);
 }
 ```
 

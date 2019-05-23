@@ -11,6 +11,7 @@ ArgResults args;
 void main(List<String> arguments) {
 // 创建ArgParser的实例，同时指定需要输入的参数
   final ArgParser argParser = new ArgParser()
+    ..addOption('name', help: "Iconfont class name", defaultsTo: 'Iconfont')
     ..addOption('from', help: "from iconfont dir path")
     ..addOption('to', help: "to .dart file path")
     ..addOption('focus', abbr: 'f', help: "Overlay file")
@@ -204,7 +205,7 @@ IconData makeIcon(int value) {
   );
 }
 
-class Iconfont {
+class ${args['name']} {
   $icons
 }
 ''';
