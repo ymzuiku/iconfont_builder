@@ -1,4 +1,4 @@
-# 快捷生成 Iconfont 图标字体在 Flutter 中的映射
+# 便捷生成 Iconfont 图标字体在用于 Flutter
 
 ![](view.png)
 
