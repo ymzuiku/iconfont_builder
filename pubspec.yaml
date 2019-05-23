@@ -1,6 +1,6 @@
 name: iconfont_builder
 description: Easy build icons to Flutter IconData from iconfont.com
-version: 0.1.8
+version: 0.1.9
 author: pillar<ymzuiku@gmail.com>
 homepage: https://github.com/ymzuiku/iconfont_builder
 
