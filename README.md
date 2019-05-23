@@ -61,8 +61,9 @@ import './Iconfont.dart';
 
 void main() {
   // iconfont 中的图标名字都会映射置 Iconfont 对象中
-  // Iconfont.name 是一个 IconData 对象
-  final theIcon = Icon(Iconfont.name);
+  // Iconfont.local 是一个 IconData 对象
+  final theIcon = Icon(Iconfont.local);
+  // ...
 }
 ```
 
