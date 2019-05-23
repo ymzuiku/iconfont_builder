@@ -1,5 +1,7 @@
 # 快捷生成 Iconfont 图标字体在 Flutter 中的映射
 
+![](imgs/view.png)
+
 Iconfont 有 500w 个图标，而且各个公司的设计师还在源源不断的为其增加新的图标，此库仅为了更便捷的在 Flutter 中使用 Iconfont 字体图标库
 
 ## 准备工作

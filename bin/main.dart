@@ -214,8 +214,8 @@ class ${args['name']} {
 String icon(String name, String value, String tip) {
   return '''
   // iconName: $tip
-  static $name([Color c, Key k, double s, TextDirection td]) {
-    return Icon(makeIcon($value), color: c, key: k, size: s, textDirection: td);
+  static $name({Color color, Key key, double size, TextDirection textDirection}) {
+    return Icon(makeIcon($value), color: color, key: key, size: size, textDirection: textDirection);
   }
 
 ''';
