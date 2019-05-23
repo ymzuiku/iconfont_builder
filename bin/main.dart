@@ -26,9 +26,9 @@ void main(List<String> arguments) {
 ---- HELP ----
 ${argParser.usage}
 """);
+  } else {
+    logic();
   }
-
-  logic();
 }
 
 String pwd(String from) {
