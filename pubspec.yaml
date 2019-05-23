@@ -1,0 +1,23 @@
+name: iconfont_builder
+description: Build Iconfont to Flutter Icon
+version: 0.1.2
+author: pillar<ymzuiku@gmail.com>
+homepage: https://github.com/ymzuiku/dart-time-log
+
+executables:
+  iconfont_builder: main
+
+environment:
+  sdk: '>=2.2.0 <3.0.0'
+
+dependencies:
+  args: any
+  lpinyin: ^1.0.7
+
+dev_dependencies:
+
+# For information on the generic Dart part of this file, see the
+# following page: https://www.dartlang.org/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
