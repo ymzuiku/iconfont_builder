@@ -112,6 +112,8 @@ void main() {
 $ iconfont_builder --from ./fonts --to ./lib/Iconfont.dart --name Icn
 ```
 
+然后用新的类名进行引用:
+
 ```dart
 import './Iconfont.dart';
 
