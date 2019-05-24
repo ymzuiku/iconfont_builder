@@ -1,10 +1,10 @@
 # 便捷生成 Iconfont 图标字体在用于 Flutter
 
-Iconfont 有 500w 个图标，而且各个公司的设计师还在源源不断的为其增加新的图标，此库仅为了更便捷的在 Flutter 中使用 Iconfont 字体图标库
+[iconfont.com](https://www.iconfont.cn/) 有 500w 个图标，而且各个公司的设计师还在源源不断的为其增加新的图标，此库仅为了更便捷的在 Flutter 中使用 Iconfont 字体图标库
 
 ## 准备工作
 
-从 [Iconfont](https://www.iconfont.cn/) 网站选择上下载字体包，解压并拷贝 `demo_index.html` 和 `iconfont.ttf` 到项目中
+从 [iconfont.com](https://www.iconfont.cn/) 网站选择上下载字体包，解压并拷贝 `demo_index.html` 和 `iconfont.ttf` 到项目中
 
 ```
 - your-project
