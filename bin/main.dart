@@ -180,20 +180,22 @@ void logic() {
   nameSet = null;
 
   String icons = '';
+  String fileString;
   for (var i = 0; i < values.length - 1; i++) {
     if (args['type'] == 'Icon') {
       icons += icon(names[i], values[i], tips[i]);
+      fileString = fileIcon(icons);
     } else if (args['type'] == 'IconData') {
       icons += iconData(names[i], values[i], tips[i]);
+      fileString = fileIconData(icons);
     }
   }
-  String fileString = file(icons);
 
   File(toDartPath).writeAsStringSync(fileString);
   print('Done! The file: $toDartPath');
 }
 
-String file(String icons) {
+String fileIcon(String icons) {
   return '''
 import 'package:flutter/material.dart';
 
@@ -204,6 +206,16 @@ IconData makeIcon(int value) {
     matchTextDirection: true,
   );
 }
+
+class ${args['name']} {
+  $icons
+}
+''';
+}
+
+String fileIconData(String icons) {
+  return '''
+import 'package:flutter/material.dart';
 
 class ${args['name']} {
   $icons
@@ -224,7 +236,11 @@ String icon(String name, String value, String tip) {
 String iconData(String name, String value, String tip) {
   return '''
   // iconName: $tip
-  static final $name = makeIcon($value);
+  static const $name = IconData(
+    $value,
+    fontFamily: 'Iconfont',
+    matchTextDirection: true,
+  );
 
 ''';
 }

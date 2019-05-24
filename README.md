@@ -26,7 +26,7 @@ fonts:
       - asset: fonts/iconfont.ttf
 ```
 
-## 安装 iconfont 至 dart 全局
+## 安装 iconfont_builder 至 dart 全局
 
 请确保电脑有 dart 环境，如果没有请执行安装 dart：
 
@@ -50,9 +50,27 @@ $ pub global activate iconfont_builder
 $ iconfont_builder --from ./fonts --to ./lib/Iconfont.dart
 ```
 
-可以浏览一下刚刚生成的 `lib/Iconfont.dart`, 里面其实就是图标名的映射
+可以浏览一下刚刚生成的 `lib/Iconfont.dart`, 里面其实就是图标名的映射:
 
-将图标名作为属性有一个好处就是使用起来 dart 会有很好的提示
+```dart
+class Iconfont {
+    // iconName: all
+  static const all = IconData(
+    0xe697,
+    fontFamily: 'Iconfont',
+    matchTextDirection: true,
+  );
+
+  // iconName: back
+  static const back = IconData(
+    0xe698,
+    fontFamily: 'Iconfont',
+    matchTextDirection: true,
+  );
+  ...
+```
+
+将图标名作为属性有一个好处就是使用起来 dart 会有很好的提示, 并且 const 会在 AOT 编译时就进行处理，有着更好的性能
 
 有的图标命名很随意，甚至有中文名称，iconfont_builder 已经将不符合 dart 命名规范的名称都做了格式化，并且保留了原有的名称作为注释。
 
