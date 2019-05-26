@@ -1,3 +1,5 @@
+## [0.2.2] - 更新 README
+
 ## [0.2.1] - 添加 font-name 的配置参数
 
 - 修改 --name 为 --class

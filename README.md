@@ -42,8 +42,6 @@ $ pub global activate iconfont_builder
 
 ## 在 Flutter 中使用 Iconfont
 
-### 使用 IconData 模式
-
 使用 iconfont_builder 编译 Iconfont.dart 文件
 
 ```sh
@@ -87,26 +85,9 @@ void main() {
 
 ![](view.png)
 
-### 使用 Icon 组件模式
+### 自定义 Iconfont 类名
 
-使用 iconfont 编译 Iconfont.dart, 添加 `--type Icon` 命令
-
-```sh
-$ iconfont_builder --type Icon --from ./fonts --to ./lib/Iconfont.dart
-```
-
-```dart
-import './Iconfont.dart';
-
-void main() {
-  // 此时，Iconfont.name 是一个函数，直接返回一个 Icon 组件
-  final theIcon = Iconfont.data();
-}
-```
-
-### 使用更短的类名
-
-编译时，添加 `--class 类名` 命令，替换 `Iconfont` 类名
+默认的类名为 Iconfont，编译时，添加 `--class 类名` 命令，可替换 `Iconfont` 类名
 
 ```sh
 $ iconfont_builder --from ./fonts --to ./lib/Iconfont.dart --class Icn
@@ -139,6 +120,25 @@ fonts:
   - family: OtherIcon
     fonts:
       - asset: fonts/iconfont.ttf
+```
+
+### 使用 Icon 组件模式
+
+默认编译的是 IconData 对象，这和 Flutter 默认的 Icons 使用习惯一致，如果需要更简短的使用，可以直接编译成 Icon 组件。
+
+使用 iconfont 编译 Iconfont.dart, 添加 `--type Icon` 命令：
+
+```sh
+$ iconfont_builder --type Icon --from ./fonts --to ./lib/Iconfont.dart
+```
+
+```dart
+import './Iconfont.dart';
+
+void main() {
+  // 此时，Iconfont.name 是一个函数，直接返回一个 Icon 组件
+  final theIcon = Iconfont.data();
+}
 ```
 
 ## 查看帮助
