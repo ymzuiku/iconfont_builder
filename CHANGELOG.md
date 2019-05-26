@@ -1,3 +1,9 @@
+## [0.2.1] - 添加 font-name 的配置参数
+
+- 修改 --name 为 --class
+- 添加 --family 用于自定义字体名
+- 更新相应的 README
+
 ## [0.2.0] - IconData 编译为 const 属性
 
 ## [0.1.9] - 修改 README

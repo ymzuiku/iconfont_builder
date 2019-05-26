@@ -11,7 +11,8 @@ ArgResults args;
 void main(List<String> arguments) {
 // 创建ArgParser的实例，同时指定需要输入的参数
   final ArgParser argParser = new ArgParser()
-    ..addOption('name', help: "Iconfont class name", defaultsTo: 'Iconfont')
+    ..addOption('class', help: "Iconfont class name", defaultsTo: 'Iconfont')
+    ..addOption('family', help: "font's family name", defaultsTo: 'Iconfont')
     ..addOption('from', help: "from iconfont dir path")
     ..addOption('to', help: "to .dart file path")
     ..addOption('focus', abbr: 'f', help: "Overlay file")
@@ -202,12 +203,12 @@ import 'package:flutter/material.dart';
 IconData makeIcon(int value) {
   return IconData(
     value,
-    fontFamily: 'Iconfont',
+    fontFamily: '${args['family']}',
     matchTextDirection: true,
   );
 }
 
-class ${args['name']} {
+class ${args['class']} {
   $icons
 }
 ''';
@@ -217,7 +218,7 @@ String fileIconData(String icons) {
   return '''
 import 'package:flutter/material.dart';
 
-class ${args['name']} {
+class ${args['class']} {
   $icons
 }
 ''';
@@ -238,7 +239,7 @@ String iconData(String name, String value, String tip) {
   // iconName: $tip
   static const $name = IconData(
     $value,
-    fontFamily: 'Iconfont',
+    fontFamily: '${args['family']}',
     matchTextDirection: true,
   );
 

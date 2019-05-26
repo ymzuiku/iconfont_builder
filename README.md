@@ -106,10 +106,10 @@ void main() {
 
 ### 使用更短的类名
 
-编译时，添加 `--name 类名` 命令，替换 `Iconfont` 类名
+编译时，添加 `--class 类名` 命令，替换 `Iconfont` 类名
 
 ```sh
-$ iconfont_builder --from ./fonts --to ./lib/Iconfont.dart --name Icn
+$ iconfont_builder --from ./fonts --to ./lib/Iconfont.dart --class Icn
 ```
 
 然后用新的类名进行引用:
@@ -120,6 +120,25 @@ import './Iconfont.dart';
 void main() {
   final theIcon = Icon(Icn.name);
 }
+```
+
+### 自定义字体名
+
+iconfont_builder 默认使用 `Iconfont` 作为 `font-family`, 而有时候我们可能同时使用多个字体, 此时我们需要自定义字体名。
+
+编译时，添加 `--family 字体名` 命令，替换 `Iconfont` 字体名:
+
+```sh
+$ iconfont_builder --from ./fonts --to ./lib/Iconfont.dart --family OtherIcon
+```
+
+然后编辑 pubspec.yaml, 引用刚刚设定的字体名
+
+```yaml
+fonts:
+  - family: OtherIcon
+    fonts:
+      - asset: fonts/iconfont.ttf
 ```
 
 ## 查看帮助
