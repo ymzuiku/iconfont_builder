@@ -182,7 +182,7 @@ void logic() {
 
   String icons = '';
   String fileString;
-  for (var i = 0; i < values.length - 1; i++) {
+  for (var i = 0; i < values.length; i++) {
     if (args['type'] == 'Icon') {
       icons += icon(names[i], values[i], tips[i]);
       fileString = fileIcon(icons);
