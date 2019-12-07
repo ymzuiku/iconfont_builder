@@ -1,6 +1,6 @@
 name: iconfont_builder
 description: Easy build icons to Flutter IconData from iconfont.com
-version: 0.2.2
+version: 0.2.3
 author: pillar<ymzuiku@gmail.com>
 homepage: https://github.com/ymzuiku/iconfont_builder
 
@@ -8,7 +8,7 @@ executables:
   iconfont_builder: main
 
 environment:
-  sdk: '>=2.2.0 <3.0.0'
+  sdk: ">=2.2.0 <3.0.0"
 
 dependencies:
   args: ^1.5.1
