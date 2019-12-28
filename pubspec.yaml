@@ -1,23 +1,20 @@
 name: iconfont_builder
-description: Easy build icons to Flutter IconData from iconfont.com
-version: 0.2.3
+description: iconfont.com 有 500w 个图标，而且各个公司的设计师还在源源不断的为其增加新的图标，此库仅为了更便捷的在 Flutter 中使用 Iconfont 字体图标库; iconfont.com have 500 million icons, and designers of various companies are constantly adding new icons to it. This library is only for the convenience of using iconfont.com Font Icon Library in flutter.
+version: 1.0.3
 author: pillar<ymzuiku@gmail.com>
 homepage: https://github.com/ymzuiku/iconfont_builder
 
 executables:
-  iconfont_builder: main
+  iconfont_builder: iconfont_builder
 
 environment:
-  sdk: ">=2.2.0 <3.0.0"
+  sdk: ">=2.3.0 <3.0.0"
 
 dependencies:
   args: ^1.5.1
   lpinyin: ^1.0.7
 
 dev_dependencies:
-
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
 
-# The following section is specific to Flutter.
-flutter:

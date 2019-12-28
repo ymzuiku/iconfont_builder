@@ -1,10 +1,18 @@
-# 便捷生成 Iconfont 图标字体在用于 Flutter
+# Convenient generation of icoont icon font for flutter
 
-[iconfont.com](https://www.iconfont.cn/) 有 500w 个图标，而且各个公司的设计师还在源源不断的为其增加新的图标，此库仅为了更便捷的在 Flutter 中使用 Iconfont 字体图标库
+[View Chinese Document](./README_CN.md)
 
-## 准备工作
+[iconfont.com](https://www.iconfont.cn/) have 500 million icons, and designers of various companies are constantly adding new icons to it. This library is only for the convenience of using iconfont.com Font Icon Library in flutter.
 
-从 [iconfont.com](https://www.iconfont.cn/) 网站选择上下载字体包，解压并拷贝 `demo_index.html` 和 `iconfont.ttf` 到项目中
+- It can be compiled into various options such as icon data and icon components
+- The name in the original icon file can be mapped to dart file and automatically converted to Pinyin
+- Font family and component name can be customized
+- The generated icondata will not have duplicate names or special characters
+- Used in multiple projects
+
+## Preparation
+
+Download the font package from the [iconfont.com](https://www.iconfont.cn/) website selection, extract and copy `demo_index.html` and `iconcont.ttf` to the project.
 
 ```
 - your-project
@@ -12,12 +20,12 @@
     - android
     - lib
     - fonts
-      # 根据此 html 文件进行解析，所以编译前需要保留
+      # Parse according to this HTML file, so you need to keep it before compiling
       demo_index.html
       iconfont.ttf
 ```
 
-编辑 pubspec.yaml, 引用文字资源
+Edit pubspec.yaml, import fonts file:
 
 ```yaml
 fonts:
@@ -26,29 +34,29 @@ fonts:
       - asset: fonts/iconfont.ttf
 ```
 
-## 安装 iconfont_builder 至 dart 全局
+## Install iconfont_builder to dart global
 
-请确保电脑有 dart 环境，如果没有请执行安装 dart：
+Make sure your computer has a dart environment. If not, install dart:
 
 ```sh
 $ brew install dart
 ```
 
-将 iconfont_builder 安装至 dart 全局，作为命令行工具进行使用:
+Install iconfont_builder to dart global as a command-line tool:
 
 ```sh
 $ pub global activate iconfont_builder
 ```
 
-## 在 Flutter 中使用 Iconfont
+## Use Iconfont in Flutter
 
-使用 iconfont_builder 编译 Iconfont.dart 文件
+Use iconfont_builder build Iconfont.dart file:
 
 ```sh
-$ iconfont_builder --from ./fonts --to ./lib/Iconfont.dart
+$ iconfont_builder --from ./fonts --to ./lib/iconfont.dart
 ```
 
-可以浏览一下刚刚生成的 `lib/Iconfont.dart`, 里面其实就是图标名的映射:
+You can browse the generated `lib/iconcont.dart`, which is actually the mapping of icon names:
 
 ```dart
 class Iconfont {
@@ -68,16 +76,16 @@ class Iconfont {
   ...
 ```
 
-将图标名作为属性有一个好处就是使用起来 dart 会有很好的提示, 并且 const 属性会在 AOT 编译时就进行处理，有着更好的性能
+One of the advantages of using icon name as an attribute is that dart will have a good prompt, and const attribute will be processed at AOT compilation time, with better performance
 
-有的图标命名很随意，甚至有中文名称，iconfont_builder 已经将不符合 dart 命名规范的名称都做了格式化，并且保留了原有的名称作为注释。
+Some icons are named casually, even in Chinese. `iconfont_builder` has formatted the names that do not conform to dart naming specification, and kept the original names as comments.
 
 ```dart
-import './Iconfont.dart';
+import './iconfont.dart';
 
 void main() {
-  // iconfont 中的图标名字都会映射置 Iconfont 对象中
-  // Iconfont.local 是一个 IconData 对象
+  // Icon names in iconfont are mapped to iconfont objects
+  // Iconfont.local is a IconData
   final theIcon = Icon(Iconfont.local);
   // ...
 }
@@ -85,15 +93,15 @@ void main() {
 
 ![](view.png)
 
-### 自定义 Iconfont 类名
+### Custom iconcont class name
 
-默认的类名为 Iconfont，编译时，添加 `--class 类名` 命令，可替换 `Iconfont` 类名
+The default class name is iconcont. When compiling, add the command '-- class class name', which can replace the 'iconcont' class name
 
 ```sh
 $ iconfont_builder --from ./fonts --to ./lib/Iconfont.dart --class Icn
 ```
 
-然后用新的类名进行引用:
+Then reference with the new class name:
 
 ```dart
 import './Iconfont.dart';
@@ -103,17 +111,17 @@ void main() {
 }
 ```
 
-### 自定义字体名
+### Custom font name
 
-iconfont_builder 默认使用 `Iconfont` 作为 `font-family`, 而有时候我们可能同时使用多个字体, 此时我们需要自定义字体名。
+iconfont_builder uses `iconfont` as `font-family` by default. Sometimes we may use multiple fonts at the same time. At this time, we need to customize the font name.
 
-编译时，添加 `--family 字体名` 命令，替换 `Iconfont` 字体名:
+During compilation, add the command `--family <font-name>` action，replace `Iconfont` font-family:
 
 ```sh
 $ iconfont_builder --from ./fonts --to ./lib/Iconfont.dart --family OtherIcon
 ```
 
-然后编辑 pubspec.yaml, 引用刚刚设定的字体名
+Then edit pubspec.yaml and reference the font name just set
 
 ```yaml
 fonts:
@@ -122,11 +130,11 @@ fonts:
       - asset: fonts/iconfont.ttf
 ```
 
-### 使用 Icon 组件模式
+### Use Icon Widget pattern
 
-默认编译的是 IconData 对象，这和 Flutter 默认的 Icons 使用习惯一致，如果需要更简短的使用，可以直接编译成 Icon 组件。
+The icondata object is compiled by default, which is consistent with the habit of using the default icons of flutter. If you need to use it more briefly, you can directly compile it into an icon widget.
 
-使用 iconfont 编译 Iconfont.dart, 添加 `--type Icon` 命令：
+Use iconcont to compile iconcont.dart, and add `-- type Icon` command:
 
 ```sh
 $ iconfont_builder --type Icon --from ./fonts --to ./lib/Iconfont.dart
@@ -136,12 +144,12 @@ $ iconfont_builder --type Icon --from ./fonts --to ./lib/Iconfont.dart
 import './Iconfont.dart';
 
 void main() {
-  // 此时，Iconfont.name 是一个函数，直接返回一个 Icon 组件
+  // At this time, Iconcont.name is a function that directly returns an icon component
   final theIcon = Iconfont.data();
 }
 ```
 
-## 查看帮助
+## View help
 
 ```dart
 $ iconfont_builder --help
