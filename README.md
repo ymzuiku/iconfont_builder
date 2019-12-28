@@ -1,6 +1,6 @@
 # Convenient generation of icoont icon font for flutter
 
-[View Chinese Document](./README_CN.md)
+[查看中文文档](./README_CN.md)
 
 [iconfont.com](https://www.iconfont.cn/) have 500 million icons, and designers of various companies are constantly adding new icons to it. This library is only for the convenience of using iconfont.com Font Icon Library in flutter.
 
