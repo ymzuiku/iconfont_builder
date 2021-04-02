@@ -16,8 +16,10 @@ void main(List<String> arguments) {
     ..addOption('from', help: "from iconfont dir path")
     ..addOption('to', help: "to .dart file path")
     ..addOption('focus', abbr: 'f', help: "Overlay file")
-    ..addOption('type', abbr: 't', defaultsTo: 'IconData', help: "Use other type")
-    ..addFlag('help', abbr: 'h', negatable: false, help: "Displays this help information.");
+    ..addOption('type',
+        abbr: 't', defaultsTo: 'IconData', help: "Use other type")
+    ..addFlag('help',
+        abbr: 'h', negatable: false, help: "Displays this help information.");
 
   args = argParser.parse(arguments);
 
@@ -43,6 +45,16 @@ List<String> keyword = [
   'if',
   'else',
   'void',
+  "new",
+  "set",
+  "get",
+  "Icon",
+  "icon",
+  "where",
+  "required",
+  "private",
+  "public",
+  "List",
   'print',
   'toString',
   'int',
@@ -60,6 +72,8 @@ List<String> keyword = [
   'return',
   'break',
   'while',
+  "library",
+  "import",
 ];
 
 List<String> symbols = [
