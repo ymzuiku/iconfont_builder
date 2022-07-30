@@ -207,7 +207,8 @@ void logic() {
       fileString = fileIcon(icons);
     } else if (args['type'] == 'IconData') {
       icons += iconData(names[i], values[i], tips[i]);
-      fileString = fileIconData( iconDataList(names) + icons);
+      fileString = fileIconData( iconDataList(names)  + iconNameList(names)
+          + iconClassNameList(tips) + icons);
     }
   }
 
@@ -220,6 +221,27 @@ String iconDataList(List<String> names) {
     
     static List<IconData> getIconList() {
       return  [${names.join(',')}];
+    } 
+    
+  ''';
+}
+
+String iconNameList(List<String> names) {
+  final newNames = names.map((e) => '\'$e\'').toList();
+  return '''
+    
+    static List<String> getIconNameList() {
+      return  [${newNames.join(',')}];
+    } 
+  ''';
+}
+
+String iconClassNameList(List<String> tips) {
+  final newTips = tips.map((e) => '\'$e\'').toList();
+  return '''
+    
+    static List<String> getIconClassNameList() {
+      return  [${newTips.join(',')}];
     } 
   ''';
 }
