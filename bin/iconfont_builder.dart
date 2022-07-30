@@ -8,6 +8,7 @@ import 'package:lpinyin/lpinyin.dart';
 
 ArgResults args;
 
+
 void main(List<String> arguments) {
 // 创建ArgParser的实例，同时指定需要输入的参数
   final ArgParser argParser = new ArgParser()
@@ -16,6 +17,7 @@ void main(List<String> arguments) {
     ..addOption('from', help: "from iconfont dir path")
     ..addOption('to', help: "to .dart file path")
     ..addOption('focus', abbr: 'f', help: "Overlay file")
+    ..addOption('package', help: 'font package')
     ..addOption('type',
         abbr: 't', defaultsTo: 'IconData', help: "Use other type")
     ..addFlag('help',
@@ -166,6 +168,10 @@ void logic() {
     // 首字母不允许大写
     v = v.replaceRange(0, 1, v[0].toLowerCase());
 
+    v = v.split('_').expand((element) => element.split(':')).map((e) => capitalize(e)).join();
+    v = deCapitalize(v);
+    print('camelize v=$v');
+
     // 不允许使用特殊字符
     symbols.forEach((key) {
       v = v.replaceAll(key, '');
@@ -181,6 +187,7 @@ void logic() {
     // 中文转拼音
     v = PinyinHelper.getPinyinE(v);
     v = v.replaceAll(' ', '');
+    v = v.replaceAll(':', '');
 
     // 如果名字重复，就在尾部递增
     if (nameSet.contains(v)) {
@@ -200,13 +207,23 @@ void logic() {
       fileString = fileIcon(icons);
     } else if (args['type'] == 'IconData') {
       icons += iconData(names[i], values[i], tips[i]);
-      fileString = fileIconData(icons);
+      fileString = fileIconData( iconDataList(names) + icons);
     }
   }
 
   File(toDartPath).writeAsStringSync(fileString);
   print('Done! The file: $toDartPath');
 }
+
+String iconDataList(List<String> names) {
+  return '''
+    
+    static List<IconData> getIconList() {
+      return  [${names.join(',')}];
+    } 
+  ''';
+}
+
 
 String fileIcon(String icons) {
   return '''
@@ -252,6 +269,7 @@ String iconData(String name, String value, String tip) {
   static const $name = IconData(
     $value,
     fontFamily: '${args['family']}',
+    fontPackage: '${args['package']}',
     matchTextDirection: true,
   );
 
@@ -262,4 +280,12 @@ String iconData(String name, String value, String tip) {
 void handleError(String msg) {
   stderr.writeln(msg);
   exitCode = 2; //当程序退出，虚拟机检查exitCode，0 表示Success，1 表示Warnings,2 表示Errors
+}
+
+String capitalize(String string) {
+    return "${string[0].toUpperCase()}${string.substring(1).toLowerCase()}";
+}
+
+String deCapitalize(String string) {
+  return "${string[0].toLowerCase()}${string.substring(1)}";
 }
