@@ -1,4 +1,4 @@
-library iconfont_build;
+library iconfont_builder;
 
 // 通过pub global activate 全局注册
 // pub global activate --source path ./
@@ -13,7 +13,7 @@ void main(List<String> arguments) {
 // 创建ArgParser的实例，同时指定需要输入的参数
   final ArgParser argParser = new ArgParser()
     ..addOption('class', help: "Iconfont class name", defaultsTo: 'Iconfont')
-    ..addOption('family', help: "font's family name", defaultsTo: 'iconfont')
+    ..addOption('family', help: "font's family name", defaultsTo: 'Iconfont')
     ..addOption('from', help: "from iconfont dir path")
     ..addOption('to', help: "to .dart file path")
     ..addOption('focus', abbr: 'f', help: "Overlay file")
@@ -268,7 +268,7 @@ String iconData(String name, String value, String tip) {
   // iconName: $tip
   static const $name = IconData(
     $value,
-    fontFamily: 'iconfont',
+    fontFamily: '${args['family']}',
     fontPackage: '${args['package']}',
     matchTextDirection: true,
   );
