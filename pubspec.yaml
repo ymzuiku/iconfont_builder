@@ -1,6 +1,6 @@
 name: iconfont_builder
 description: iconfont.com 有 500w 个图标，而且各个公司的设计师还在源源不断的为其增加新的图标，此库仅为了更便捷的在 Flutter 中使用 Iconfont 字体图标库; iconfont.com have 500 million icons, and designers of various companies are constantly adding new icons to it. This library is only for the convenience of using iconfont.com Font Icon Library in flutter.
-version: 1.0.7
+version: 1.0.8
 homepage: https://github.com/ymzuiku/iconfont_builder
 
 executables:
